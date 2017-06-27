@@ -1,15 +1,17 @@
 # Add more specific tests to check the schema created for the table
 '''Tests for file_to_db'''
 
-from mysite import settings
-from mysite.helpers import testhelpers as th
-from mysite.helpers.db_access import DBAccess
-from scisheets.models import UploadedFiles
-from mysite.helpers.file_to_db import (FileTable, SQLType)
+import os
+from os import sys, path
+sys.path.append(os.path.dirname(path.dirname(path.abspath(__file__))))
+from testhelpers import  \
+    TEST_DB_PATH, SetupTestDB, TearDownTestDB,  \
+    FILE_PATH, TEST_DB_PATH
+from db_access import DBAccess
+from file_to_db import (FileTable, SQLType)
 import unittest
 #import file_to_db as f2d
 import sqlite3
-import os
 
 class TestFunctions(unittest.TestCase):
   def testSQLType(self):
@@ -24,7 +26,7 @@ class TestFileTable(unittest.TestCase):
   def setUp(self):
     return
     # Use a copy of the real DB for these tests
-    self.assertTrue(th.SetupTestDB())
+    self.assertTrue(SetupTestDB())
 
   def tearDown(self):
     return
@@ -48,17 +50,6 @@ class TestFileTable(unittest.TestCase):
     self.assertTrue(new_table_set.issuperset(new_row_set))
     self.assertFalse(old_table_set.issuperset(new_row_set))
     ft._ExecuteSQL('', CloseDB=True)
-
-  def testRemoveUploadedFile(self):
-    return
-    dba = DBAccess(db_path=th.TEST_DB_PATH)
-    ft = FileTable(th.FILE_PATH, db=th.TEST_DB_PATH)
-    ft.CreateAndPopulateTable()
-    table_set = set(FileTable.DataTableList(db=th.TEST_DB_PATH))
-    self.assertTrue(table_set.issuperset(set([ft._table_name])))
-    FileTable.RemoveUploadedFile(ft._filename, db=th.TEST_DB_PATH)
-    remove_table_set = set(FileTable.DataTableList(db=th.TEST_DB_PATH))
-    self.assertFalse(remove_table_set.issuperset(set([ft._table_name])))
     
   def testConstructor(self):
     return
@@ -76,16 +67,6 @@ class TestFileTable(unittest.TestCase):
     rows, _ = dba.ExecuteQuery(sql_str)
     file_name = rows[0][0]
     self.assertEqual(file_name, th.FILE_NAME)
-
-  def test_RemoveFileFromTable(self):
-    return
-    ft = FileTable(th.FILE_PATH, db=th.TEST_DB_PATH)
-    ft._RemoveFileFromTable()
-    try:
-      entry = UploadedFiles.objects.get(file_name=th.FILE_NAME)
-      assertTrue(True)  # This should succeed
-    except:
-      pass
     
   def testCreateAndPopulateTable(self):
     return

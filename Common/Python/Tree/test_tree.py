@@ -3,7 +3,6 @@
 import unittest
 from tree import Node, Tree, PositionTree, TreeIterator
 from scisheets.core.table import Table
-from scisheets.core.column import Column
 from data_capture import DataCapture
 from named_tree import NamedTree
 import json
@@ -279,16 +278,6 @@ class TestTree(unittest.TestCase):
       return
     self._testRandomTrees()
 
-  def testRandomTreeWithTableAndColumns(self):
-    if IGNORE_TEST:
-      return
-    tree_test = lambda x: all([isinstance(l, Column) 
-                               for l in x.getLeaves()])
-    self._testRandomTrees(nonleaf_cls=Table, leaf_cls=Column,
-        tree_test=tree_test)
-    self._testRandomTrees(leaf_cls=Column)
-    self._testRandomTrees(leaf_cls=Table)
-    self._testRandomTrees(nonleaf_cls=Table)
 
   def testGetUniqueName(self):
     if IGNORE_TEST:

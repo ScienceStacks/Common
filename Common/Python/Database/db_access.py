@@ -2,7 +2,6 @@
    Helpers that virtualize the underlying database used.
 '''
 
-from mysite import settings
 import sqlite3
 import os
 
@@ -24,7 +23,7 @@ class DBError(Error):
 #############################
 # Constants
 #############################
-CUR_DB = settings.DATABASES['default']['NAME']
+CUR_DB = "default_db"
 
 
 #############################

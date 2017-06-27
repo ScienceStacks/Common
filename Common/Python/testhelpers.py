@@ -1,12 +1,11 @@
 '''Code used commonly in tests'''
-from mysite import settings
 import os
 import shutil
 import sqlite3
 
 def ComputeDBPaths():
   # Output: real_db_path, test_db_path
-  real_db_path = settings.DATABASES.get('default').get('NAME')
+  real_db_path = "test"
   real_db_path_list = os.path.split(real_db_path)
   real_db_name = real_db_path_list[1]
   test_db_name = "test_%s" % real_db_name
@@ -16,8 +15,7 @@ def ComputeDBPaths():
 REAL_DB_PATH, TEST_DB_PATH = ComputeDBPaths()
 FILE_NAME = 'test_file_to_db'
 RAW_FILE_NAME = FILE_NAME + '.tsv'
-INITIAL_PATH = os.path.join(settings.BASE_DIR, 'mysite/helpers')
-FILE_PATH = os.path.join(INITIAL_PATH, RAW_FILE_NAME)
+FILE_PATH = os.path.dirname(__file__)
 TEST_TABLE = 'TESTXXX'
 
 def ExecuteSQL(conn, sql_str, cursor=None):

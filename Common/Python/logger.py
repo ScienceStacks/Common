@@ -1,8 +1,7 @@
 """Provides logging in a CSV format."""
 
-import numpy as np
 import time
-
+import numpy as np
 
 _HEADER = '"cumtime (ms)", "last_elapsed (ms)", "name", "details"'
 

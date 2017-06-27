@@ -1,12 +1,11 @@
 '''Tests for logger.'''
 
 import logger
-from mysite import settings
-import os
+import numpy as np
 import unittest
 
 
-FILEPATH =  os.path.join(settings.SCISHEETS_TEST_DIR, "test_logger.csv")
+FILEPATH =  "test_logger.csv"
 LOGGER = "TESTING"
 
 
