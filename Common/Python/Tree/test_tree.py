@@ -2,7 +2,6 @@
 
 import unittest
 from tree import Node, Tree, PositionTree, TreeIterator
-from scisheets.core.table import Table
 from data_capture import DataCapture
 from named_tree import NamedTree
 import json
