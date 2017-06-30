@@ -9,7 +9,7 @@ Implements three classes:
          the relationship is a linear order.
 """
 
-from CodeGeneration.statement_accumulator import StatementAccumulator
+from ..CodeGeneration.statement_accumulator import StatementAccumulator
 import random
 
 

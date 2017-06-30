@@ -1,15 +1,15 @@
 '''Tests for file_access'''
 
-from mysite import settings
 import unittest
-import file_access as fa
+from . import file_access as fa
 import json
 import os
 
-TEST_FILE1 = os.path.join(settings.BASE_DIR, 
-    'mysite/helpers/test_file_access.tsv')
-TEST_FILE2 = os.path.join(settings.BASE_DIR, 
-    'mysite/helpers/test_file_access_crd.tsv')
+PACKAGE_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+TEST_FILE1 = os.path.join(PACKAGE_DIRECTORY,
+    'test_file_access.tsv')
+TEST_FILE2 = os.path.join(PACKAGE_DIRECTORY,
+    'test_file_access_crd.tsv')
 
 class TestFunctions(unittest.TestCase):
 

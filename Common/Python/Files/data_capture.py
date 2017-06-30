@@ -2,9 +2,10 @@
 Capture data for use elsewhere
 """
 
-from mysite import settings
 import os
 import pickle
+
+CAPTURE_DIRECTORY = "/tmp"
 
 
 class DataCapture(object):
@@ -13,7 +14,7 @@ class DataCapture(object):
   Capture and recover data for use elsewhere.
   """
 
-  def __init__(self, filename, directory=settings.SCISHEETS_TEST_DIR):
+  def __init__(self, filename, directory=CAPTURE_DIRECTORY):
     """
     :param str filename: filename without extension
     :param str directory: directory path where file is placed

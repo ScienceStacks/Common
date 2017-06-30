@@ -2,10 +2,12 @@
 
 import logger
 import numpy as np
+import os
 import unittest
 
 
-FILEPATH =  "test_logger.csv"
+PACKAGE_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+FILEPATH =  os.path.join(PACKAGE_DIRECTORY, "test_logger.csv")
 LOGGER = "TESTING"
 
 

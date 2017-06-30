@@ -1,8 +1,7 @@
 '''Tests for DataCapture'''
 
-from mysite import settings
 import unittest
-from data_capture import DataCapture
+from .data_capture import DataCapture
 import os
 
 TEST_FILE = 'data_capture_file'

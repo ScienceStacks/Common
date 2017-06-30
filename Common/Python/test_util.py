@@ -1,7 +1,7 @@
 '''Tests for utility routines.'''
 
 import unittest
-import util as ut
+from . import util as ut
 
 
 class TestFunctions(unittest.TestCase):
