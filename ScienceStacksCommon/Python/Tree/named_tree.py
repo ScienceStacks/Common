@@ -2,7 +2,7 @@
 Knows about local and global names for a PositionTree
 """
 
-from .tree import PositionTree
+from tree import PositionTree
 import random
 from collections import namedtuple
 
