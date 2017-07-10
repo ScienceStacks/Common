@@ -16,7 +16,7 @@ NAME5 = "NAME5"
 NEW_NAME = "XXYY"
 COMPLEX_TREE_LIST = [NAME2, NAME4, NAME3]
 
-IGNORE_TEST = True
+IGNORE_TEST = False
 
 #############################
 # Helper Functions
@@ -307,7 +307,7 @@ class TestTree(unittest.TestCase):
         includes=[self.tree2])
     self.assertEqual(len(children_dict.keys()), 0)
 
-  def testGetAttachedLeaves(self):
+  def testGetAttachedNodes(self):
     """
       NAME1
         NAME2
@@ -319,16 +319,16 @@ class TestTree(unittest.TestCase):
     # All leaves
     self._createComplexTree()
     all_leaves = self.root.getLeaves()
-    leaves = self.root.getAttachedLeaves(all_leaves)
+    leaves = self.root.getAttachedNodes(all_leaves)
     self.assertEqual(set(leaves),
         set([self.tree4, self.tree3]))
     # Eliminate NAME4
     self.tree2.setIsAttached(False)
-    leaves = self.root.getAttachedLeaves(all_leaves)
+    leaves = self.root.getAttachedNodes(all_leaves)
     self.assertEqual(leaves, [self.tree3])
     # Detaching the root shouldn't matter
     self.root.setIsAttached(False)
-    leaves = self.root.getAttachedLeaves(all_leaves)
+    leaves = self.root.getAttachedNodes(all_leaves)
     self.assertEqual(leaves, [self.tree3])
 
 

@@ -9,7 +9,6 @@ Implements three classes:
          the relationship is a linear order.
 """
 
-from ..CodeGeneration.statement_accumulator import StatementAccumulator
 import random
 
 
@@ -614,12 +613,13 @@ class Tree(Node):
         result = "[%s]" % node._name
       return result
 
-    sa = StatementAccumulator()
+    statements = []
     for node in self.getAllNodes():  # Depth first order
       indent = len(node.findPathFromRoot(is_attached=False)) - 1
-      sa.indent(indent, is_incremental=False)
-      sa.add(nodeString(node))
-    return sa.get()
+      spaces = ''.join([' ' for _ in range(indent)])
+      statements.append("%s%s" % (spaces, nodeString(node)))
+    result = "\n".join(statements)
+    return result
 
   def _checkTreeStructure(self):
     """
