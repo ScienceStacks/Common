@@ -1,4 +1,4 @@
-# Common codes
+# Common codes used in ScienceStacks
 
 ## Python
 
