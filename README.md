@@ -5,14 +5,13 @@
 ### CodeGeneration - code generation helpers
 - statement_accumulator - tracks statements to be generated
 
+### CommonUtil
+
+- util.py - small utilities
+
 ### Database - database access codes
 
 - db_access - wrapper for SQLLite
-
-### Tree -  tree manipulations, including named tree
-
-- tree - Node, Tree, Position trees
-- named_tree - mapping between names and nodes
 
 ### FileVersion - managing file versions with undo and redo
 
@@ -20,6 +19,11 @@
 - file_stack - stack abstraction for a group of files
 - versioned_files - manage file versions
 
-### Other
+### Testing - files to assist with tests
 
-- util.py - small utilities
+- testhelpers.py - help with database testing
+
+### Tree -  tree manipulations, including named tree
+
+- tree - Node, Tree, Position trees
+- named_tree - mapping between names and nodes
