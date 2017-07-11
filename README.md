@@ -7,6 +7,8 @@
 
 ### CommonUtil
 
+- is_null.py - tests if an object is null
+- prune_nulls.py - removes nulls
 - util.py - small utilities
 
 ### Database - database access codes
