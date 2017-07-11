@@ -1,6 +1,9 @@
 '''Utility routines that add in file access'''
 
-from ..CommonUtil import util as ut
+try:
+  from ..CommonUtil import util as ut
+except:
+  from CommonUtil import util as ut
 import json
 
 
