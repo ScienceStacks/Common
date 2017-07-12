@@ -1,5 +1,5 @@
-from .db_access import DBAccess
-from ..Testing import testhelpers as th
+from db_access import DBAccess
+from ..common_testing import testhelpers as th
 import unittest
 import os
 import sqlite3

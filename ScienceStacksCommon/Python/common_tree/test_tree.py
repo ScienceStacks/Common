@@ -1,9 +1,9 @@
 '''Tests for Tree'''
 
 import unittest
-from .tree import Node, Tree, PositionTree, TreeIterator
-from ..Files.data_capture import DataCapture
-from .named_tree import NamedTree
+from tree import Node, Tree, PositionTree, TreeIterator
+from ..common_file.data_capture import DataCapture
+from named_tree import NamedTree
 import json
 import os
 
